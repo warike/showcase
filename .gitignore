@@ -1,0 +1,51 @@
+# Node modules (Remix)
+**/node_modules/
+**/npm-debug.log
+**/yarn-error.log
+**/.pnpm-debug.log
+
+# Remix build files
+**/**/build/
+
+# Python (FastAPI)
+**/*.pyc
+**/*.pyo
+**/__pycache__/
+**/*.pyd
+**/*.db
+**/*.sqlite
+**/.env
+**/.env.*
+**/*.log
+**/*.pot
+
+# FastAPI migrations
+**/api/migrations/
+
+# Virtual environments (Python)
+**/venv/
+**/env/
+**/env.bak/
+**/venv.bak/
+
+# Terraform
+**/**/.terraform/*
+**/**/.terraform/*
+**/*.tfstate
+**/*.hcl
+**/*.tfstate.backup
+**/*.tfvars
+**/override.tf
+**/override.tf.json
+**/terraform.tfstate
+**/terraform.tfstate.*.backup
+
+# Local IDEs and editors
+**/.idea/
+**/.vscode/
+
+# macOS
+**/.DS_Store
+
+# Windows
+**/Thumbs.db
