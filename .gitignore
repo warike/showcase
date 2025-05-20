@@ -3,9 +3,8 @@
 **/npm-debug.log
 **/yarn-error.log
 **/.pnpm-debug.log
+output/
 
-# Remix build files
-**/**/build/
 
 # Python (FastAPI)
 **/*.pyc
