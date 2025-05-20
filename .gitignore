@@ -1,10 +1,12 @@
 # Node modules (Remix)
+**/.next/
 **/node_modules/
 **/npm-debug.log
 **/yarn-error.log
 **/.pnpm-debug.log
-output/
 
+# Build files
+**/**/build/
 
 # Python (FastAPI)
 **/*.pyc
@@ -17,9 +19,12 @@ output/
 **/.env.*
 **/*.log
 **/*.pot
+output/
 
-# FastAPI migrations
-**/api/migrations/
+
+
+# migrations
+**/**/migrations/
 
 # Virtual environments (Python)
 **/venv/
@@ -28,16 +33,16 @@ output/
 **/venv.bak/
 
 # Terraform
-**/**/.terraform/*
-**/**/.terraform/*
-**/*.tfstate
-**/*.hcl
-**/*.tfstate.backup
-**/*.tfvars
-**/override.tf
-**/override.tf.json
-**/terraform.tfstate
-**/terraform.tfstate.*.backup
+**/.terraform/*
+.terraform/*
+*.tfstate
+*.hcl
+*.tfstate.backup
+*.tfvars
+override.tf
+override.tf.json
+terraform.tfstate
+terraform.tfstate.*.backup
 
 # Local IDEs and editors
 **/.idea/

@@ -1,0 +1,52 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT_WEB: example-cloudrun-cloudflare-web
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WAF_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+      
+      - name: Set short git commit SHA
+        id: vars
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:latest -f web/Dockerfile web
+          docker push ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:latest
+
+            # - name: Create and push Git tag
+      - name: Tag and push Docker image
+        run: |
+          docker tag ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:latest ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:${{ env.SHORT_SHA }}
+          docker push ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:${{ env.SHORT_SHA }}
+      
+      - name: Publish to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.PROJECT_WEB }} \
+            --image ${{ secrets.GCP_ARTIFACT_REPO }}/${{ env.PROJECT_WEB }}:latest \
+            --platform managed \
+            --region ${{ secrets.GCP_REGION }}
