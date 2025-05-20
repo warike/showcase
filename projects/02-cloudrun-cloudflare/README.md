@@ -1,5 +1,5 @@
 * ---
-### Title? A Minimalist Strategy for Securing Cloud Services with Cloudflare and GCP
+### A Minimalist Strategy for Securing Cloud Services with Cloudflare and GCP
 #### Why it is important?
 
 In the cloud era, quickly exposing services is crucial, but it is equally important to protect them from unwanted traffic that can inflate costs and compromise security. This project demonstrates how a smart architecture and the combination of services from different providers can offer a robust, cost-efficient solution with low operational overhead.
