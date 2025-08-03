@@ -33,16 +33,17 @@ output/
 **/venv.bak/
 
 # Terraform
-**/.terraform/*
-.terraform/*
-*.tfstate
-*.hcl
-*.tfstate.backup
-*.tfvars
-override.tf
-override.tf.json
-terraform.tfstate
-terraform.tfstate.*.backup
+**/**/infrastructure/*
+**/**/.terraform/*
+**/**/.terraform/*
+**/*.tfstate
+**/*.hcl
+**/*.tfstate.backup
+**/*.tfvars
+**/override.tf
+**/override.tf.json
+**/terraform.tfstate
+**/terraform.tfstate.*.backup
 
 # Local IDEs and editors
 **/.idea/
