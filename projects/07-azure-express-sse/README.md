@@ -19,4 +19,4 @@ This project shows how to create a more responsive user experience in web applic
       * Appropriate response headers (`Content-Type: text/event-stream`, `Cache-Control: no-cache`, `Connection: keep-alive`) are crucial for ensuring clients like EventSource can correctly handle the stream.
       * Processing the streamed data involves reading the response body in chunks, decoding it, and formatting each part into valid SSE events.
   * **Status:** Completed.
-  * **Resources:** [Code & Details](https://medium.com/@warike-tech)
+  * **Resources:** [Code & Details](https://medium.com/warike)

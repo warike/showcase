@@ -20,6 +20,6 @@ This project provides a practical guide for creating a chat API endpoint using *
 
   * **Status:** Completed.
 
-  * **Resources:** [Code & Details](https://medium.com/agranimo/create-chat-endpoint-with-express-047cf7771059)
+  * **Resources:** [Code & Details](https://medium.com/warike)
 
 -----
