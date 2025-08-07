@@ -2,7 +2,7 @@
 import { z } from "zod";
 import * as dotenv from "dotenv";
 
-dotenv.config(); // carga las variables desde .env
+dotenv.config();
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
