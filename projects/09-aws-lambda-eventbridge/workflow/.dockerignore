@@ -1,0 +1,14 @@
+// add files from javascript project
+node_modules/*
+__tests__/*
+.mastra/*
+dist/*
+
+// Cursor files
+.cursor/*
+
+
+Dockerfile*
+
+.env*
+.gitignore
